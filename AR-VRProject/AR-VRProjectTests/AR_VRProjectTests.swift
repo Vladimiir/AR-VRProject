@@ -1,13 +1,14 @@
 //
-//  AR_VRTests.swift
-//  AR_VRTests
+//  AR_VRProjectTests.swift
+//  AR-VRProjectTests
 //
 //  Created by Vladimir Stasenko on 05.10.2023.
 //
 
 import XCTest
+@testable import AR_VRProject
 
-final class AR_VRTests: XCTestCase {
+final class AR_VRProjectTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -27,7 +28,7 @@ final class AR_VRTests: XCTestCase {
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        measure {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

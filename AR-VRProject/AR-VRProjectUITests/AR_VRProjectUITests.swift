@@ -1,13 +1,13 @@
 //
-//  AR_VRUITests.swift
-//  AR_VRUITests
+//  AR_VRProjectUITests.swift
+//  AR-VRProjectUITests
 //
 //  Created by Vladimir Stasenko on 05.10.2023.
 //
 
 import XCTest
 
-final class AR_VRUITests: XCTestCase {
+final class AR_VRProjectUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

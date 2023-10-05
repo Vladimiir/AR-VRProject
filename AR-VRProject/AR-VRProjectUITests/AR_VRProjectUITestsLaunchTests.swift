@@ -1,13 +1,13 @@
 //
-//  AR_VRUITestsLaunchTests.swift
-//  AR_VRUITests
+//  AR_VRProjectUITestsLaunchTests.swift
+//  AR-VRProjectUITests
 //
 //  Created by Vladimir Stasenko on 05.10.2023.
 //
 
 import XCTest
 
-final class AR_VRUITestsLaunchTests: XCTestCase {
+final class AR_VRProjectUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
