@@ -21,6 +21,10 @@ class ARViewModel: UIViewController, ObservableObject, ARSessionDelegate {
         model.imageRecognizedVar
     }
     
+    func reset() {
+        model.imageRecognizedVar = false
+    }
+    
     func startSessionDelegate() {
         model.arView.session.delegate = self
     }

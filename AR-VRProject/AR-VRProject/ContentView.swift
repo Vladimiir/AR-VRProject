@@ -33,20 +33,31 @@ struct ContentView : View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
-                Text("Is Image Recognized?")
+                Spacer()
                 
-                switch arViewModel.imageRecognizedVar {
-                case false:
-                    Text("No")
-                        .foregroundColor(.red)
-                case true:
-                    Text("Yes")
-                        .foregroundColor(.green)
+                VStack {
+                    Text("Is Image Recognized?")
+                    
+                    switch arViewModel.imageRecognizedVar {
+                    case false:
+                        Text("No")
+                            .foregroundColor(.red)
+                    case true:
+                        Text("Yes")
+                            .foregroundColor(.green)
+                    }
+                    
+                    Button(action: {
+                        arViewModel.reset()
+                    }, label: {
+                        Text("Reset")
+                    })
                 }
+                .font(.title)
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 20).fill(.regularMaterial))
             }
-            .font(.title)
-            .padding()
-            .background(RoundedRectangle(cornerRadius: 20).fill(.regularMaterial))
+            .padding(.bottom, 50)
         }
     }
 }
