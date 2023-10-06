@@ -18,6 +18,8 @@
 		36E79FD62ACF4B8600A5C8CA /* ARVideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E79FD52ACF4B8600A5C8CA /* ARVideModel.swift */; };
 		36E79FDD2AD0516100A5C8CA /* RealityKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E79FDC2AD0516100A5C8CA /* RealityKitView.swift */; };
 		36E79FE02AD052A400A5C8CA /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E79FDF2AD052A400A5C8CA /* ARViewContainer.swift */; };
+		36E79FE32AD080FE00A5C8CA /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 36E79FE22AD080FE00A5C8CA /* FocusEntity */; };
+		36E79FE62AD0833500A5C8CA /* RealityFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36E79FE52AD0833500A5C8CA /* RealityFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,7 @@
 		36E79FD52ACF4B8600A5C8CA /* ARVideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVideModel.swift; sourceTree = "<group>"; };
 		36E79FDC2AD0516100A5C8CA /* RealityKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityKitView.swift; sourceTree = "<group>"; };
 		36E79FDF2AD052A400A5C8CA /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
+		36E79FE52AD0833500A5C8CA /* RealityFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealityFoundation.framework; path = System/Library/Frameworks/RealityFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36E79FE62AD0833500A5C8CA /* RealityFoundation.framework in Frameworks */,
+				36E79FE32AD080FE00A5C8CA /* FocusEntity in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +91,7 @@
 				367C7E672ACF3DFC00FA18CA /* AR-VRProjectTests */,
 				367C7E712ACF3DFC00FA18CA /* AR-VRProjectUITests */,
 				367C7E552ACF3DFA00FA18CA /* Products */,
+				36E79FE42AD0833500A5C8CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -155,6 +161,14 @@
 			path = ARViewContainer;
 			sourceTree = "<group>";
 		};
+		36E79FE42AD0833500A5C8CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				36E79FE52AD0833500A5C8CA /* RealityFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -171,6 +185,9 @@
 			dependencies = (
 			);
 			name = "AR-VRProject";
+			packageProductDependencies = (
+				36E79FE22AD080FE00A5C8CA /* FocusEntity */,
+			);
 			productName = "AR-VRProject";
 			productReference = 367C7E542ACF3DFA00FA18CA /* AR-VRProject.app */;
 			productType = "com.apple.product-type.application";
@@ -243,6 +260,9 @@
 				Base,
 			);
 			mainGroup = 367C7E4B2ACF3DFA00FA18CA;
+			packageReferences = (
+				36E79FE12AD080FE00A5C8CA /* XCRemoteSwiftPackageReference "FocusEntity" */,
+			);
 			productRefGroup = 367C7E552ACF3DFA00FA18CA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -624,6 +644,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		36E79FE12AD080FE00A5C8CA /* XCRemoteSwiftPackageReference "FocusEntity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maxxfrazer/FocusEntity";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		36E79FE22AD080FE00A5C8CA /* FocusEntity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 36E79FE12AD080FE00A5C8CA /* XCRemoteSwiftPackageReference "FocusEntity" */;
+			productName = FocusEntity;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 367C7E4C2ACF3DFA00FA18CA /* Project object */;
 }
