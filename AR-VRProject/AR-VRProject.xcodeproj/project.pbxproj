@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		367C7E582ACF3DFA00FA18CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C7E572ACF3DFA00FA18CA /* AppDelegate.swift */; };
-		367C7E5A2ACF3DFA00FA18CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C7E592ACF3DFA00FA18CA /* ContentView.swift */; };
+		367C7E5A2ACF3DFA00FA18CA /* ARVRToolsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C7E592ACF3DFA00FA18CA /* ARVRToolsList.swift */; };
 		367C7E5C2ACF3DFC00FA18CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 367C7E5B2ACF3DFC00FA18CA /* Assets.xcassets */; };
 		367C7E5F2ACF3DFC00FA18CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 367C7E5E2ACF3DFC00FA18CA /* Preview Assets.xcassets */; };
 		367C7E692ACF3DFC00FA18CA /* AR_VRProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C7E682ACF3DFC00FA18CA /* AR_VRProjectTests.swift */; };
@@ -21,6 +21,7 @@
 		36E79FE32AD080FE00A5C8CA /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 36E79FE22AD080FE00A5C8CA /* FocusEntity */; };
 		36E79FE62AD0833500A5C8CA /* RealityFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36E79FE52AD0833500A5C8CA /* RealityFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		36E79FE82AD0955800A5C8CA /* RealityKitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E79FE72AD0955800A5C8CA /* RealityKitViewModel.swift */; };
+		36F0D0A22AD2C5BD003DF9B9 /* ARViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0D0A12AD2C5BD003DF9B9 /* ARViewRepresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +44,7 @@
 /* Begin PBXFileReference section */
 		367C7E542ACF3DFA00FA18CA /* AR-VRProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR-VRProject.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		367C7E572ACF3DFA00FA18CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		367C7E592ACF3DFA00FA18CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		367C7E592ACF3DFA00FA18CA /* ARVRToolsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVRToolsList.swift; sourceTree = "<group>"; };
 		367C7E5B2ACF3DFC00FA18CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		367C7E5E2ACF3DFC00FA18CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		367C7E642ACF3DFC00FA18CA /* AR-VRProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AR-VRProjectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +58,7 @@
 		36E79FDF2AD052A400A5C8CA /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
 		36E79FE52AD0833500A5C8CA /* RealityFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealityFoundation.framework; path = System/Library/Frameworks/RealityFoundation.framework; sourceTree = SDKROOT; };
 		36E79FE72AD0955800A5C8CA /* RealityKitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityKitViewModel.swift; sourceTree = "<group>"; };
+		36F0D0A12AD2C5BD003DF9B9 /* ARViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewRepresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				367C7E572ACF3DFA00FA18CA /* AppDelegate.swift */,
-				367C7E592ACF3DFA00FA18CA /* ContentView.swift */,
+				367C7E592ACF3DFA00FA18CA /* ARVRToolsList.swift */,
 				36E79FDE2AD0529B00A5C8CA /* ARViewContainer */,
 				36E79FDB2AD0515600A5C8CA /* RealityKitView */,
 				367C7E5B2ACF3DFC00FA18CA /* Assets.xcassets */,
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				36E79FDF2AD052A400A5C8CA /* ARViewContainer.swift */,
+				36F0D0A12AD2C5BD003DF9B9 /* ARViewRepresentable.swift */,
 				36E79FD52ACF4B8600A5C8CA /* ARVideModel.swift */,
 				36E79FD22ACF4A0500A5C8CA /* ARModel.swift */,
 			);
@@ -311,9 +314,10 @@
 				36E79FD62ACF4B8600A5C8CA /* ARVideModel.swift in Sources */,
 				36E79FDD2AD0516100A5C8CA /* RealityKitView.swift in Sources */,
 				36E79FD32ACF4A0500A5C8CA /* ARModel.swift in Sources */,
-				367C7E5A2ACF3DFA00FA18CA /* ContentView.swift in Sources */,
+				367C7E5A2ACF3DFA00FA18CA /* ARVRToolsList.swift in Sources */,
 				367C7E582ACF3DFA00FA18CA /* AppDelegate.swift in Sources */,
 				36E79FE82AD0955800A5C8CA /* RealityKitViewModel.swift in Sources */,
+				36F0D0A22AD2C5BD003DF9B9 /* ARViewRepresentable.swift in Sources */,
 				36E79FE02AD052A400A5C8CA /* ARViewContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

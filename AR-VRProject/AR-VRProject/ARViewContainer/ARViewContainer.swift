@@ -8,14 +8,36 @@
 import SwiftUI
 import RealityKit
 
-struct ARViewContainer: UIViewRepresentable {
-        
-    var vm: ARViewModel
+struct ARViewContainer: View {
     
-    func makeUIView(context: Context) -> ARView {
-        vm.startSessionDelegate()
-        return vm.arView
+    @ObservedObject var vm = ARViewModel()
+    
+    var body: some View {
+        ZStack {
+            ARViewRepresentable(vm: vm)
+                .ignoresSafeArea()
+            
+            VStack {
+                Spacer()
+                
+                VStack {
+                    Text("Is Image Recognized?")
+                    
+                    Text(vm.imageRecognizedTuple.title)
+                        .foregroundColor(vm.imageRecognizedTuple.color)
+                    
+                    Button(action: {
+                        vm.reset()
+                    }, label: {
+                        Text("Reset")
+                    })
+                }
+                .font(.title)
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 20).fill(.regularMaterial))
+            }
+            .padding(.bottom, 50)
+        }
     }
-    
-    func updateUIView(_ uiView: ARView, context: Context) {}
 }
+
