@@ -6,6 +6,9 @@
   "resources" : [
     {
       "filename" : "mug.arreferenceimage"
+    },
+    {
+      "filename" : "toaster.arreferenceimage"
     }
   ]
 }

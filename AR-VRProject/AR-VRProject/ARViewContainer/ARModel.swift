@@ -35,7 +35,6 @@ struct ARModel {
     
     func pauseSession() {
         arView.session.pause()
-        arView.session.run(configuration, options: .removeExistingAnchors)
     }
     
     mutating func imageRecognized(anchors: [ARAnchor]) {

@@ -42,7 +42,6 @@ class ARViewModel: UIViewController, ObservableObject {
     }
     
     func runSession() {
-        startSessionDelegate()
         model.runSession()
     }
     
@@ -52,6 +51,7 @@ class ARViewModel: UIViewController, ObservableObject {
     
     func reset() {
         model.imageRecognizedVar = false
+        runSession()
     }
     
     func startSessionDelegate() {
