@@ -27,6 +27,16 @@ class ARViewModel: UIViewController, ObservableObject {
          imageRecognizedVar ? .green : .red)
     }
     
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        model.arView.session.delegate = self
+        runSession()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     deinit {
         pauseSession()
     }

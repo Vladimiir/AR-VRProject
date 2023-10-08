@@ -12,11 +12,9 @@ import FocusEntity
 
 class RealityKitViewModel: ObservableObject {
     
-    private(set) var arView: ARView
+    private(set) var arView = ARView()
     
     init() {
-        arView = ARView()
-        
         // Add coaching overlay
         let coachingOverlay = ARCoachingOverlayView()
         coachingOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -25,9 +23,9 @@ class RealityKitViewModel: ObservableObject {
         arView.addSubview(coachingOverlay)
         
         // Set debug options
-        #if DEBUG
+#if DEBUG
         arView.debugOptions = [.showFeaturePoints, .showAnchorOrigins, .showAnchorGeometry]
-        #endif
+#endif
         
         runSession()
     }

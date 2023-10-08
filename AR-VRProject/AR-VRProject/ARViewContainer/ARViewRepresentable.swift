@@ -9,11 +9,12 @@ import SwiftUI
 import RealityKit
 
 struct ARViewRepresentable: UIViewRepresentable {
-        
+    
     var vm: ARViewModel
     
     func makeUIView(context: Context) -> ARView {
         vm.startSessionDelegate()
+        vm.runSession()
         return vm.arView
     }
     
