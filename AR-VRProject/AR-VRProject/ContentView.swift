@@ -8,28 +8,27 @@
 import SwiftUI
 import RealityKit
 
-struct ContentView : View {
-   
+struct ContentView: View {
+    
     @ObservedObject var arViewModel = ARViewModel()
+    @ObservedObject var realityKitViewModel = RealityKitViewModel()
     
     var body: some View {
-        TabView {
-            getARViewContainer()
-                .tabItem {
-                    Label("ARView", systemImage: "star")
-                }
-
-            RealityKitView()
-                .ignoresSafeArea()
-                .tabItem {
-                    Label("RealityKitView", systemImage: "list.dash")
-                }
+        NavigationStack {
+            NavigationLink("ARView") {
+                getARViewContainer()
+            }
+            
+            NavigationLink("RealityKitView") {
+                RealityKitView(vm: realityKitViewModel)
+                    .ignoresSafeArea()
+            }
         }
     }
     
     private func getARViewContainer() -> some View {
         ZStack {
-            ARViewContainer(arViewModel: arViewModel)
+            ARViewContainer(vm: arViewModel)
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
@@ -38,14 +37,8 @@ struct ContentView : View {
                 VStack {
                     Text("Is Image Recognized?")
                     
-                    switch arViewModel.imageRecognizedVar {
-                    case false:
-                        Text("No")
-                            .foregroundColor(.red)
-                    case true:
-                        Text("Yes")
-                            .foregroundColor(.green)
-                    }
+                    Text(arViewModel.imageRecognizedTuple.title)
+                        .foregroundColor(arViewModel.imageRecognizedTuple.color)
                     
                     Button(action: {
                         arViewModel.reset()

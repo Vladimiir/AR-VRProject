@@ -5,11 +5,11 @@
 //  Created by Vladimir Stasenko on 05.10.2023.
 //
 
-import Foundation
+import SwiftUI
 import RealityKit
 import ARKit
 
-class ARViewModel: UIViewController, ObservableObject, ARSessionDelegate {
+class ARViewModel: UIViewController, ObservableObject {
     
     @Published private var model = ARModel()
     
@@ -21,6 +21,21 @@ class ARViewModel: UIViewController, ObservableObject, ARSessionDelegate {
         model.imageRecognizedVar
     }
     
+    var imageRecognizedTuple: (title: String,
+                               color: Color) {
+        (imageRecognizedVar ? "Yes" : "No",
+         imageRecognizedVar ? .green : .red)
+    }
+    
+    func runSession() {
+        startSessionDelegate()
+        model.runSession()
+    }
+    
+    func pauseSession() {
+        model.pauseSession()
+    }
+    
     func reset() {
         model.imageRecognizedVar = false
     }
@@ -28,6 +43,9 @@ class ARViewModel: UIViewController, ObservableObject, ARSessionDelegate {
     func startSessionDelegate() {
         model.arView.session.delegate = self
     }
+}
+
+extension ARViewModel: ARSessionDelegate {
     
     func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
         model.imageRecognized(anchors: anchors)

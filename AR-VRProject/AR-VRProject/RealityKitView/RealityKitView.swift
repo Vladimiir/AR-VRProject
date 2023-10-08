@@ -12,32 +12,12 @@ import FocusEntity
 
 struct RealityKitView: UIViewRepresentable {
     
+    var vm: RealityKitViewModel
+    
     func makeUIView(context: Context) -> ARView {
-        let view = ARView()
-        
-        // Start AR session
-        let session = view.session
-        let config = ARWorldTrackingConfiguration()
-        config.planeDetection = [.horizontal]
-        session.run(config)
-        
-        // Add coaching overlay
-        let coachingOverlay = ARCoachingOverlayView()
-        coachingOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        coachingOverlay.session = session
-        coachingOverlay.goal = .horizontalPlane
-        view.addSubview(coachingOverlay)
-        
-        // Handle ARSession events via delegate
-        context.coordinator.view = view
-        session.delegate = context.coordinator
-        
-        // Set debug options
-        #if DEBUG
-        view.debugOptions = [.showFeaturePoints, .showAnchorOrigins, .showAnchorGeometry]
-        #endif
-        
-        return view
+        context.coordinator.view = vm.arView
+        vm.arView.session.delegate = context.coordinator
+        return vm.arView
     }
     
     func makeCoordinator() -> Coordinator {

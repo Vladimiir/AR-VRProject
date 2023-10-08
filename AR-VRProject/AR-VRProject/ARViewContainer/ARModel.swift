@@ -11,11 +11,11 @@ import ARKit
 
 struct ARModel {
     
-    private(set) var arView: ARView
+    private(set) var arView = ARView(frame: .zero)
     
     var imageRecognizedVar = false
     
-    init() {
+    func runSession() {
         guard let trackerImage = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources",
                                                                   bundle: nil) else {
             fatalError("Missing expected asset catalog resources.")
@@ -24,8 +24,11 @@ struct ARModel {
         let configuration = ARWorldTrackingConfiguration()
         configuration.detectionImages = trackerImage
         
-        arView = ARView(frame: .zero)
         arView.session.run(configuration)
+    }
+    
+    func pauseSession() {
+        arView.session.pause()
     }
     
     mutating func imageRecognized(anchors: [ARAnchor]) {
