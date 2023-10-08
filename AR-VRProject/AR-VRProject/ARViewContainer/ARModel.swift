@@ -11,9 +11,13 @@ import ARKit
 
 struct ARModel {
     
-    private(set) var arView = ARView(frame: .zero)
+    private(set) var arView: ARView
     
     var imageRecognizedVar = false
+    
+    init () {
+        arView = ARView(frame: .zero)
+    }
     
     func runSession() {
         guard let trackerImage = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources",

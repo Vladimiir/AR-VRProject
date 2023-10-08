@@ -12,7 +12,7 @@ import FocusEntity
 
 struct RealityKitView: UIViewRepresentable {
     
-    @ObservedObject var vm = RealityKitViewModel()
+    @StateObject var vm = RealityKitViewModel()
     
     func makeUIView(context: Context) -> ARView {
         context.coordinator.view = vm.arView

@@ -10,7 +10,7 @@ import RealityKit
 
 struct ARViewContainer: View {
     
-    @ObservedObject var vm = ARViewModel()
+    @StateObject var vm = ARViewModel()
     
     var body: some View {
         ZStack {

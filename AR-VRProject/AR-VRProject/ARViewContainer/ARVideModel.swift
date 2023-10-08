@@ -27,6 +27,10 @@ class ARViewModel: UIViewController, ObservableObject {
          imageRecognizedVar ? .green : .red)
     }
     
+    deinit {
+        pauseSession()
+    }
+    
     func runSession() {
         startSessionDelegate()
         model.runSession()

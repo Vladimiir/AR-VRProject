@@ -10,18 +10,11 @@ import RealityKit
 
 struct ARVRToolsList: View {
     
-    @ObservedObject var vm = ARViewModel()
-    
     var body: some View {
         NavigationStack {
             List {
                 NavigationLink("ARView 👾👀") {
                     ARViewContainer()
-                        .ignoresSafeArea()
-                }
-                
-                NavigationLink("ARViewRepresentable") {
-                    ARViewRepresentable(vm: vm)
                         .ignoresSafeArea()
                 }
                 
