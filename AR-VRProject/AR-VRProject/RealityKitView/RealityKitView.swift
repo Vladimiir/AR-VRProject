@@ -52,12 +52,19 @@ struct RealityKitView: UIViewRepresentable {
             let anchor = AnchorEntity()
             view.scene.anchors.append(anchor)
 
+            /*
             // Add a Box entity with a blue material
             let box = MeshResource.generateBox(size: 0.5, cornerRadius: 0.05)
             let material = SimpleMaterial(color: .blue, isMetallic: true)
             let diceEntity = ModelEntity(mesh: box, materials: [material])
             diceEntity.position = focusEntity.position
-
+             */
+            
+            // Add a dice entity
+            let diceEntity = try! ModelEntity.loadModel(named: "Dice")
+            diceEntity.scale = [0.1, 0.1, 0.1]
+            diceEntity.position = focusEntity.position
+            
             anchor.addChild(diceEntity)
         }
     }
