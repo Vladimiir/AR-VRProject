@@ -15,6 +15,8 @@
 		367C7E732ACF3DFC00FA18CA /* AR_VRProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C7E722ACF3DFC00FA18CA /* AR_VRProjectUITests.swift */; };
 		367C7E752ACF3DFC00FA18CA /* AR_VRProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C7E742ACF3DFC00FA18CA /* AR_VRProjectUITestsLaunchTests.swift */; };
 		36BAA4902AD593BE00E4B983 /* Dice.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 36BAA48F2AD593BE00E4B983 /* Dice.usdz */; };
+		36BAA4942AD8183E00E4B983 /* ObjectCapturingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BAA4932AD8183E00E4B983 /* ObjectCapturingView.swift */; };
+		36BAA4962AD8184300E4B983 /* ObjectCapturingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BAA4952AD8184300E4B983 /* ObjectCapturingViewModel.swift */; };
 		36E79FD32ACF4A0500A5C8CA /* ARModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E79FD22ACF4A0500A5C8CA /* ARModel.swift */; };
 		36E79FD62ACF4B8600A5C8CA /* ARVideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E79FD52ACF4B8600A5C8CA /* ARVideModel.swift */; };
 		36E79FDD2AD0516100A5C8CA /* RealityKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E79FDC2AD0516100A5C8CA /* RealityKitView.swift */; };
@@ -54,6 +56,8 @@
 		367C7E722ACF3DFC00FA18CA /* AR_VRProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_VRProjectUITests.swift; sourceTree = "<group>"; };
 		367C7E742ACF3DFC00FA18CA /* AR_VRProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_VRProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		36BAA48F2AD593BE00E4B983 /* Dice.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Dice.usdz; sourceTree = "<group>"; };
+		36BAA4932AD8183E00E4B983 /* ObjectCapturingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCapturingView.swift; sourceTree = "<group>"; };
+		36BAA4952AD8184300E4B983 /* ObjectCapturingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCapturingViewModel.swift; sourceTree = "<group>"; };
 		36E79FD22ACF4A0500A5C8CA /* ARModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARModel.swift; sourceTree = "<group>"; };
 		36E79FD52ACF4B8600A5C8CA /* ARVideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVideModel.swift; sourceTree = "<group>"; };
 		36E79FDC2AD0516100A5C8CA /* RealityKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityKitView.swift; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 				367C7E592ACF3DFA00FA18CA /* ARVRToolsList.swift */,
 				36E79FDE2AD0529B00A5C8CA /* ARViewContainer */,
 				36E79FDB2AD0515600A5C8CA /* RealityKitView */,
+				36BAA4922AD816EA00E4B983 /* ObjectCapturing */,
 				367C7E5B2ACF3DFC00FA18CA /* Assets.xcassets */,
 				36BAA4912AD5944300E4B983 /* Resources */,
 				367C7E5D2ACF3DFC00FA18CA /* Preview Content */,
@@ -156,6 +161,15 @@
 				36BAA48F2AD593BE00E4B983 /* Dice.usdz */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		36BAA4922AD816EA00E4B983 /* ObjectCapturing */ = {
+			isa = PBXGroup;
+			children = (
+				36BAA4932AD8183E00E4B983 /* ObjectCapturingView.swift */,
+				36BAA4952AD8184300E4B983 /* ObjectCapturingViewModel.swift */,
+			);
+			path = ObjectCapturing;
 			sourceTree = "<group>";
 		};
 		36E79FDB2AD0515600A5C8CA /* RealityKitView */ = {
@@ -326,7 +340,9 @@
 				36E79FD62ACF4B8600A5C8CA /* ARVideModel.swift in Sources */,
 				36E79FDD2AD0516100A5C8CA /* RealityKitView.swift in Sources */,
 				36E79FD32ACF4A0500A5C8CA /* ARModel.swift in Sources */,
+				36BAA4942AD8183E00E4B983 /* ObjectCapturingView.swift in Sources */,
 				367C7E5A2ACF3DFA00FA18CA /* ARVRToolsList.swift in Sources */,
+				36BAA4962AD8184300E4B983 /* ObjectCapturingViewModel.swift in Sources */,
 				367C7E582ACF3DFA00FA18CA /* AppDelegate.swift in Sources */,
 				36E79FE82AD0955800A5C8CA /* RealityKitViewModel.swift in Sources */,
 				36F0D0A22AD2C5BD003DF9B9 /* ARViewRepresentable.swift in Sources */,

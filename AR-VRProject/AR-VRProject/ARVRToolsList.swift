@@ -22,6 +22,11 @@ struct ARVRToolsList: View {
                     RealityKitView()
                         .ignoresSafeArea()
                 }
+                
+                NavigationLink("Object capturing 🤳") {
+                    RealityKitView()
+                        .ignoresSafeArea()
+                }
             }
             .navigationTitle("List of AR/VR tools")
         }
