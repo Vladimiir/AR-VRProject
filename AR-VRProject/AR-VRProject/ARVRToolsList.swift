@@ -24,7 +24,7 @@ struct ARVRToolsList: View {
                 }
                 
                 NavigationLink("Object capturing 🤳") {
-                    RealityKitView()
+                    ObjectCapturingView()
                         .ignoresSafeArea()
                 }
             }
