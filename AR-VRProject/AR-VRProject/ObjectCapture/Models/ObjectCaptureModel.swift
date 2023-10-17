@@ -18,7 +18,7 @@ class ObjectCaptureModel: ObservableObject {
     private(set) var photogrammetrySession: PhotogrammetrySession?
     
     init() {
-        session =  ObjectCaptureSession()
+        session = ObjectCaptureSession()
         
         var configuration = ObjectCaptureSession.Configuration()
         configuration.isOverCaptureEnabled = true

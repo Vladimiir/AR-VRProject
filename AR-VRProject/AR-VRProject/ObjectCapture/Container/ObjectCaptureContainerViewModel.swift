@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealityKit
+import Combine
 
 @MainActor
 class ObjectCaptureContainerViewModel: ObservableObject {
@@ -15,4 +16,17 @@ class ObjectCaptureContainerViewModel: ObservableObject {
     
     /// Handles all capturing and reconstration logic
     @Published var objectCaptureModel = ObjectCaptureModel()
+    
+    private var cancellables = Set<AnyCancellable>()
+    
+    init() {
+        addListeners()
+    }
+    
+    private func addListeners() {
+        objectCaptureModel.objectWillChange.sink { _ in
+            self.objectWillChange.send()
+        }
+        .store(in: &cancellables)
+    }
 }
