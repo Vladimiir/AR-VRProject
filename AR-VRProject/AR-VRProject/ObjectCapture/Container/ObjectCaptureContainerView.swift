@@ -15,19 +15,19 @@ struct ObjectCaptureContainerView: View {
     var body: some View {
         VStack {
             if let session = vm.objectCaptureModel.session {
-                if session.userCompletedScanPass {
+                if vm.showObjectCapturePointCloudView {
                     VStack {
                         ObjectCapturePointCloudView(session: session)
                         
                         Button(action: {
-                            session.finish()
+                            vm.finishButtonAction()
                         }, label: {
                             Text("Finish")
                         })
                         
                         // TODO: what to do here?
-                        // move to reconstraction flow
-                        // show created model in OS camera
+                        // 1. move to reconstraction flow
+                        // 2. show created model in OS camera
                     }
                 } else {
                     ObjectCaptureView(session: session,
@@ -35,22 +35,22 @@ struct ObjectCaptureContainerView: View {
 //                    .blur(radius: 45)//appModel.showPreviewModel ? 45 : 0)
 //                    .transition(.opacity)
                     
-                    if case .ready = session.state {
+                    if vm.canShowContinueButton {
                         Button(action: {
-                            session.startDetecting()
+                            vm.continueButtonAction()
                         }, label: {
                             Text("Continue")
                         })
-                    } else if case .detecting = session.state {
+                    } else if vm.canShowStartCaptureButton {
                         Button(action: {
-                            session.startCapturing()
+                            vm.startCaptureButtonAction()
                         }, label: {
                             Text("Start Capture")
                         })
                     }
                     
                     Button {
-                        session.resetDetection()
+                        vm.resetButtonAction()
                     } label: {
                         Text("Reset")
                     }
@@ -61,8 +61,9 @@ struct ObjectCaptureContainerView: View {
         }
         .sheet(isPresented: $vm.showReconstructionView) {
             if let modelDirectory = DirectoriesManager.modelDirectory {
-//                ReconstructionView(outputFile: modelDirectory,
-//                                   progress: <#T##Binding<Float>#>)
+                ReconstructionView(outputFile: modelDirectory,
+                                   progress: $vm.objectCaptureModel.progress)
+                .environmentObject(vm.objectCaptureModel)
             }
         }
     }

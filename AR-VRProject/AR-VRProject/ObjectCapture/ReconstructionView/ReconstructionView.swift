@@ -12,6 +12,7 @@ struct ReconstructionView: View {
     
     let outputFile: URL
     @Binding var progress: Float
+    @EnvironmentObject var objectCaptureModel: ObjectCaptureModel
     
     @State private var completed: Bool = false
     @State private var cancelled: Bool = false
@@ -19,7 +20,10 @@ struct ReconstructionView: View {
     var body: some View {
         VStack {
             if completed && !cancelled {
-                Text("ModelView")
+                ModelView(modelFile: outputFile, 
+                          endCaptureCallback: { //[weak self] in
+//                    self.objectCaptureModel.endCapture()
+                })
             } else {
                 ProgressView(progress: progress)
             }

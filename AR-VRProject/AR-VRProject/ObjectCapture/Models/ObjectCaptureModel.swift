@@ -14,6 +14,8 @@ class ObjectCaptureModel: ObservableObject {
     @Published var session: ObjectCaptureSession?
     @Published var progress: Float = 0
     
+    // TODO: add a closure that will trigger in specific cases to let views know about it
+    
     /// Handles reconstraction logic off images into 3D model
     private(set) var photogrammetrySession: PhotogrammetrySession?
     
@@ -32,6 +34,7 @@ class ObjectCaptureModel: ObservableObject {
                                 configuration: configuration)
         }
         
+        // Observing for 'stateUpdates' updates and do the next step
         Task {
             if let session {
                 for await newState in session.stateUpdates {
@@ -53,7 +56,9 @@ class ObjectCaptureModel: ObservableObject {
                 .finishing:
             break
         case .completed:
+            // Cleans up the session to free GPU and memory resources.
             session = nil
+            
             do {
                 try await startReconstruction()
             } catch {
@@ -99,7 +104,17 @@ class ObjectCaptureModel: ObservableObject {
                     case .requestProgress(_, fractionComplete: let fractionComplete):
                         progress = Float(fractionComplete)
                     case .processingComplete:
-                        break
+                        // Cleans up the session to free GPU and memory resources.
+                        self.photogrammetrySession = nil
+                        
+                        // Removes snapshots folder to free up space after generating the model.
+                        if let checkpointDirectory = DirectoriesManager.checkpointDirectory {
+                            DispatchQueue.global(qos: .background).async {
+                                try? FileManager.default.removeItem(at: checkpointDirectory)
+                            }
+                        }
+                        
+                        
                     @unknown default:
                         print("@unknown default")
                     }
