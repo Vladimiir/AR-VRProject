@@ -14,7 +14,7 @@ class ObjectCaptureModel: ObservableObject {
     @Published var session: ObjectCaptureSession?
     @Published var progress: Float = 0
     
-    // TODO: add a closure that will trigger in specific cases to let views know about it
+    var photogrammetryCompleted: (() -> ())?
     
     /// Handles reconstraction logic off images into 3D model
     private(set) var photogrammetrySession: PhotogrammetrySession?
@@ -114,7 +114,7 @@ class ObjectCaptureModel: ObservableObject {
                             }
                         }
                         
-                        
+                        photogrammetryCompleted?()
                     @unknown default:
                         print("@unknown default")
                     }

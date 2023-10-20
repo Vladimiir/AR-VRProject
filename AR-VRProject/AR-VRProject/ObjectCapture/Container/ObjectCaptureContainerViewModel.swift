@@ -38,6 +38,10 @@ class ObjectCaptureContainerViewModel: ObservableObject {
         }
         .store(in: &cancellables)
         
+        objectCaptureModel.photogrammetryCompleted = { [weak self] in
+            self?.showReconstructionView = true
+        }
+        
         // Observing for 'userCompletedScanPassUpdates' updates and do the next step
         Task {
             if let objectCaptureSession = objectCaptureModel.session {

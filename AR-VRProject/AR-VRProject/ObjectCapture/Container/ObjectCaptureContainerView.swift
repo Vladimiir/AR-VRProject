@@ -24,10 +24,6 @@ struct ObjectCaptureContainerView: View {
                         }, label: {
                             Text("Finish")
                         })
-                        
-                        // TODO: what to do here?
-                        // 1. move to reconstraction flow
-                        // 2. show created model in OS camera
                     }
                 } else {
                     ObjectCaptureView(session: session,
