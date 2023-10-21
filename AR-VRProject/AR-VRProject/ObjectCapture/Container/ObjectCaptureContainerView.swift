@@ -54,7 +54,8 @@ struct ObjectCaptureContainerView: View {
                                    showReconstructionView: $vm.showReconstructionView,
                                    progress: $vm.objectCaptureModel.progress,
                                    reconstractionCompleted: $vm.objectCaptureModel.reconstractionCompleted,
-                                   reconstractionCanceled: $vm.objectCaptureModel.reconstractionCanceled)
+                                   reconstractionCanceled: $vm.objectCaptureModel.reconstractionCanceled, 
+                                   isReadyForReconstraction: $vm.objectCaptureModel.isReadyForReconstraction)
                 .environmentObject(vm.objectCaptureModel)
             }
         }

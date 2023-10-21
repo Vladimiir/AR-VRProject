@@ -15,6 +15,7 @@ struct ReconstructionView: View {
     @Binding var progress: Float
     @Binding var reconstractionCompleted: Bool
     @Binding var reconstractionCanceled: Bool
+    @Binding var isReadyForReconstraction: Bool
     
     @Environment (\.dismiss) var dismiss
     @EnvironmentObject var objectCaptureModel: ObjectCaptureModel
@@ -24,6 +25,8 @@ struct ReconstructionView: View {
             HStack {
                 Button(action: {
                     objectCaptureModel.photogrammetrySession?.cancel()
+                    // TODO: when to start 'startNewCapture'?
+//                    objectCaptureModel.startNewCapture()
                     dismiss()
                 }, label: {
                     Text("Cancel")
@@ -48,18 +51,23 @@ struct ReconstructionView: View {
                         showReconstructionView = false
                     })
                 } else {
-                    HStack {
-                        Text("Reconstruction in progress...")
+                    if isReadyForReconstraction {
+                        HStack {
+                            Text("Reconstruction in progress...")
+                            
+                            Spacer()
+                            
+                            Text(progress,
+                                 format: .percent.precision(.fractionLength(0)))
+                            .monospacedDigit()
+                        }
+                        .font(.body)
                         
-                        Spacer()
-                        
-                        Text(progress,
-                             format: .percent.precision(.fractionLength(0)))
-                        .monospacedDigit()
+                        ProgressView(value: progress)
+                    } else {
+                        ProgressView()
+                            .progressViewStyle(.circular)
                     }
-                    .font(.body)
-                    
-                    ProgressView(value: progress)
                 }
             }
             .padding(.horizontal, 20)

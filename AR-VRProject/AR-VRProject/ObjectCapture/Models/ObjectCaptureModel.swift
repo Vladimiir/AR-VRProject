@@ -15,11 +15,26 @@ class ObjectCaptureModel: ObservableObject {
     @Published var progress: Float = 0
     @Published var reconstractionCompleted = false
     @Published var reconstractionCanceled = false
+    @Published var isReadyForReconstraction = false
     
     /// Handles reconstraction logic off images into 3D model
     private(set) var photogrammetrySession: PhotogrammetrySession?
     
     init() {
+        startNewCapture()
+        
+        // Observing for 'stateUpdates' updates and do the next step
+        Task {
+            if let session {
+                for await newState in session.stateUpdates {
+                    print("stateUpdates = \(newState)")
+                    await stateUpdated()
+                }
+            }
+        }
+    }
+    
+    func startNewCapture() {
         session = ObjectCaptureSession()
         
         var configuration = ObjectCaptureSession.Configuration()
@@ -32,16 +47,6 @@ class ObjectCaptureModel: ObservableObject {
         if let imagesDirectory = DirectoriesManager.imagesDirectory {
             self.session?.start(imagesDirectory: imagesDirectory,
                                 configuration: configuration)
-        }
-        
-        // Observing for 'stateUpdates' updates and do the next step
-        Task {
-            if let session {
-                for await newState in session.stateUpdates {
-                    print("stateUpdates = \(newState)")
-                    await stateUpdated()
-                }
-            }
         }
     }
     
@@ -58,6 +63,7 @@ class ObjectCaptureModel: ObservableObject {
         case .completed:
             // Cleans up the session to free GPU and memory resources.
             session = nil
+            isReadyForReconstraction = true
             
             do {
                 try await startReconstruction()
@@ -99,7 +105,7 @@ class ObjectCaptureModel: ObservableObject {
                             .requestProgressInfo(_, _),
                             .stitchingIncomplete:
                         break
-                    case .requestError(let request, let error):
+                    case .requestError(_, let error):
                         print("error = \(error.localizedDescription)")
                     case .processingCancelled:
                         reconstractionCanceled = true
@@ -129,5 +135,7 @@ class ObjectCaptureModel: ObservableObject {
         photogrammetrySession = nil
         reconstractionCompleted = false
         reconstractionCanceled = false
+        isReadyForReconstraction = false
+        startNewCapture()
     }
 }
