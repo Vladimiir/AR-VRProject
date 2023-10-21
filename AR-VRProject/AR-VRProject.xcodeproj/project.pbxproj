@@ -20,6 +20,7 @@
 		367DAFC72ADC85CA00030A39 /* ObjectCaptureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367DAFC62ADC85CA00030A39 /* ObjectCaptureModel.swift */; };
 		367DB00B2ADF04B300030A39 /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367DB00A2ADF04B300030A39 /* GradientBackgroundView.swift */; };
 		367DB00E2AE2E6D400030A39 /* ModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367DB00D2AE2E6D400030A39 /* ModelView.swift */; };
+		367DB0102AE3CCEF00030A39 /* BlueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367DB00F2AE3CCEF00030A39 /* BlueButton.swift */; };
 		36BAA4902AD593BE00E4B983 /* Dice.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 36BAA48F2AD593BE00E4B983 /* Dice.usdz */; };
 		36BAA4942AD8183E00E4B983 /* ObjectCaptureContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BAA4932AD8183E00E4B983 /* ObjectCaptureContainerView.swift */; };
 		36BAA4962AD8184300E4B983 /* ObjectCaptureContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BAA4952AD8184300E4B983 /* ObjectCaptureContainerViewModel.swift */; };
@@ -67,6 +68,7 @@
 		367DAFC62ADC85CA00030A39 /* ObjectCaptureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCaptureModel.swift; sourceTree = "<group>"; };
 		367DB00A2ADF04B300030A39 /* GradientBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
 		367DB00D2AE2E6D400030A39 /* ModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelView.swift; sourceTree = "<group>"; };
+		367DB00F2AE3CCEF00030A39 /* BlueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueButton.swift; sourceTree = "<group>"; };
 		36BAA48F2AD593BE00E4B983 /* Dice.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Dice.usdz; sourceTree = "<group>"; };
 		36BAA4932AD8183E00E4B983 /* ObjectCaptureContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCaptureContainerView.swift; sourceTree = "<group>"; };
 		36BAA4952AD8184300E4B983 /* ObjectCaptureContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCaptureContainerViewModel.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				367DAFC42ADC71FB00030A39 /* ProgressView.swift */,
+				367DB00F2AE3CCEF00030A39 /* BlueButton.swift */,
 			);
 			path = ProgressView;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				367DAFC72ADC85CA00030A39 /* ObjectCaptureModel.swift in Sources */,
 				367DB00E2AE2E6D400030A39 /* ModelView.swift in Sources */,
 				36BAA4962AD8184300E4B983 /* ObjectCaptureContainerViewModel.swift in Sources */,
+				367DB0102AE3CCEF00030A39 /* BlueButton.swift in Sources */,
 				367C7E582ACF3DFA00FA18CA /* AppDelegate.swift in Sources */,
 				36E79FE82AD0955800A5C8CA /* RealityKitViewModel.swift in Sources */,
 				367DB00B2ADF04B300030A39 /* GradientBackgroundView.swift in Sources */,

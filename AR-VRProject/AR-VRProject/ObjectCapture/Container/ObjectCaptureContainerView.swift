@@ -19,11 +19,10 @@ struct ObjectCaptureContainerView: View {
                     VStack {
                         ObjectCapturePointCloudView(session: session)
                         
-                        Button(action: {
+                        BlueButton(title: "Finish") {
                             vm.finishButtonAction()
-                        }, label: {
-                            Text("Finish")
-                        })
+                        }
+                        .padding(.bottom, 50)
                     }
                 } else {
                     ObjectCaptureView(session: session,
@@ -32,24 +31,20 @@ struct ObjectCaptureContainerView: View {
 //                    .transition(.opacity)
                     
                     if vm.canShowContinueButton {
-                        Button(action: {
+                        BlueButton(title: "Continue") {
                             vm.continueButtonAction()
-                        }, label: {
-                            Text("Continue")
-                        })
+                        }
                     } else if vm.canShowStartCaptureButton {
-                        Button(action: {
+                        BlueButton(title: "Start Capture") {
                             vm.startCaptureButtonAction()
-                        }, label: {
-                            Text("Start Capture")
-                        })
+                        }
                     }
                     
-                    Button {
+                    BlueButton(title: "Reset") {
                         vm.resetButtonAction()
-                    } label: {
-                        Text("Reset")
                     }
+                    .padding(.top, 10)
+                    .padding(.bottom, 50)
                 }
             } else {
                 Text("There is no vm.session!")
