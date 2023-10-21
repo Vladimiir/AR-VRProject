@@ -13,8 +13,8 @@ class ObjectCaptureModel: ObservableObject {
     
     @Published var session: ObjectCaptureSession?
     @Published var progress: Float = 0
-    
-    var photogrammetryCompleted: (() -> ())?
+    @Published var reconstractionCompleted = false
+    @Published var reconstractionCanceled = false
     
     /// Handles reconstraction logic off images into 3D model
     private(set) var photogrammetrySession: PhotogrammetrySession?
@@ -92,20 +92,23 @@ class ObjectCaptureModel: ObservableObject {
                 for try await output in photogrammetrySession.outputs {
                     switch output {
                     case .inputComplete,
-                            .requestError(_, _),
                             .requestComplete(_, _),
-                            .processingCancelled,
                             .invalidSample(id: _, reason: _),
                             .skippedSample(id: _),
                             .automaticDownsampling,
                             .requestProgressInfo(_, _),
                             .stitchingIncomplete:
                         break
+                    case .requestError(let request, let error):
+                        print("error = \(error.localizedDescription)")
+                    case .processingCancelled:
+                        reconstractionCanceled = true
                     case .requestProgress(_, fractionComplete: let fractionComplete):
                         progress = Float(fractionComplete)
                     case .processingComplete:
                         // Cleans up the session to free GPU and memory resources.
                         self.photogrammetrySession = nil
+                        reconstractionCompleted = true
                         
                         // Removes snapshots folder to free up space after generating the model.
                         if let checkpointDirectory = DirectoriesManager.checkpointDirectory {
@@ -113,19 +116,18 @@ class ObjectCaptureModel: ObservableObject {
                                 try? FileManager.default.removeItem(at: checkpointDirectory)
                             }
                         }
-                        
-                        photogrammetryCompleted?()
                     @unknown default:
                         print("@unknown default")
                     }
                 }
             }
         }
-        
-        // TOOD: show 'ReconstructionPrimaryView'
-        // 'ModelView' if model is ready OR
-            // contains 'QLPreviewController' which will show the 3D model
-        // 'ReconstructionProgressView' if reconstruction is in progress
-            // use there 'for try await output in session.outputs { ... }' to handle all events
+    }
+    
+    func reset() {
+        session = nil
+        photogrammetrySession = nil
+        reconstractionCompleted = false
+        reconstractionCanceled = false
     }
 }

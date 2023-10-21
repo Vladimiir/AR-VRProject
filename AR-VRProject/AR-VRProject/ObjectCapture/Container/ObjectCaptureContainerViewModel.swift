@@ -38,16 +38,13 @@ class ObjectCaptureContainerViewModel: ObservableObject {
         }
         .store(in: &cancellables)
         
-        objectCaptureModel.photogrammetryCompleted = { [weak self] in
-            self?.showReconstructionView = true
-        }
-        
         // Observing for 'userCompletedScanPassUpdates' updates and do the next step
         Task {
             if let objectCaptureSession = objectCaptureModel.session {
                 for await scanPassUpdate in objectCaptureSession.userCompletedScanPassUpdates {
                     print("scanPassUpdate = \(scanPassUpdate)")
                     showObjectCapturePointCloudView = true
+                    objectCaptureSession.pause()
                 }
             }
         }
@@ -55,6 +52,7 @@ class ObjectCaptureContainerViewModel: ObservableObject {
     
     func finishButtonAction() {
         objectCaptureModel.session?.finish()
+        showReconstructionView = true
     }
     
     func continueButtonAction() {

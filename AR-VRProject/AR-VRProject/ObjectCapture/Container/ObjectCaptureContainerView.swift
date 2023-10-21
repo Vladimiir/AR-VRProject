@@ -27,8 +27,6 @@ struct ObjectCaptureContainerView: View {
                 } else {
                     ObjectCaptureView(session: session,
                                       cameraFeedOverlay: { GradientBackgroundView() })
-//                    .blur(radius: 45)//appModel.showPreviewModel ? 45 : 0)
-//                    .transition(.opacity)
                     
                     if vm.canShowContinueButton {
                         BlueButton(title: "Continue") {
@@ -52,8 +50,11 @@ struct ObjectCaptureContainerView: View {
         }
         .sheet(isPresented: $vm.showReconstructionView) {
             if let modelDirectory = DirectoriesManager.modelDirectory {
-                ReconstructionView(outputFile: modelDirectory,
-                                   progress: $vm.objectCaptureModel.progress)
+                ReconstructionView(outputFile: modelDirectory, 
+                                   showReconstructionView: $vm.showReconstructionView,
+                                   progress: $vm.objectCaptureModel.progress,
+                                   reconstractionCompleted: $vm.objectCaptureModel.reconstractionCompleted,
+                                   reconstractionCanceled: $vm.objectCaptureModel.reconstractionCanceled)
                 .environmentObject(vm.objectCaptureModel)
             }
         }

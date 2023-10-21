@@ -16,7 +16,6 @@
 		367C7E732ACF3DFC00FA18CA /* AR_VRProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C7E722ACF3DFC00FA18CA /* AR_VRProjectUITests.swift */; };
 		367C7E752ACF3DFC00FA18CA /* AR_VRProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C7E742ACF3DFC00FA18CA /* AR_VRProjectUITestsLaunchTests.swift */; };
 		367DAFC22ADC2BE700030A39 /* DirectoriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367DAFC12ADC2BE700030A39 /* DirectoriesManager.swift */; };
-		367DAFC52ADC71FB00030A39 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367DAFC42ADC71FB00030A39 /* ProgressView.swift */; };
 		367DAFC72ADC85CA00030A39 /* ObjectCaptureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367DAFC62ADC85CA00030A39 /* ObjectCaptureModel.swift */; };
 		367DB00B2ADF04B300030A39 /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367DB00A2ADF04B300030A39 /* GradientBackgroundView.swift */; };
 		367DB00E2AE2E6D400030A39 /* ModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367DB00D2AE2E6D400030A39 /* ModelView.swift */; };
@@ -64,7 +63,6 @@
 		367C7E722ACF3DFC00FA18CA /* AR_VRProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_VRProjectUITests.swift; sourceTree = "<group>"; };
 		367C7E742ACF3DFC00FA18CA /* AR_VRProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_VRProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		367DAFC12ADC2BE700030A39 /* DirectoriesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoriesManager.swift; sourceTree = "<group>"; };
-		367DAFC42ADC71FB00030A39 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		367DAFC62ADC85CA00030A39 /* ObjectCaptureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCaptureModel.swift; sourceTree = "<group>"; };
 		367DB00A2ADF04B300030A39 /* GradientBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
 		367DB00D2AE2E6D400030A39 /* ModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelView.swift; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 		367DAFC32ADC71EC00030A39 /* ProgressView */ = {
 			isa = PBXGroup;
 			children = (
-				367DAFC42ADC71FB00030A39 /* ProgressView.swift */,
 				367DB00F2AE3CCEF00030A39 /* BlueButton.swift */,
 			);
 			path = ProgressView;
@@ -422,7 +419,6 @@
 				36E79FE02AD052A400A5C8CA /* ARViewContainer.swift in Sources */,
 				365EF7C02ADA915B0067DE5B /* ReconstructionView.swift in Sources */,
 				367DAFC22ADC2BE700030A39 /* DirectoriesManager.swift in Sources */,
-				367DAFC52ADC71FB00030A39 /* ProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
